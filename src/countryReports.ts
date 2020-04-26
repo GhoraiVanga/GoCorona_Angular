@@ -8,10 +8,10 @@ export interface CountryReports
     recovered:number;
     active:number;
     critical:string;
-    casesPerOneMillion:number;
+ 
    
     tests :string;
-    testsPerOneMillion:string;
+    
 
 
 }
