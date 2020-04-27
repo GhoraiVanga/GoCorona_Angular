@@ -43,6 +43,9 @@ export class Covid19Component implements OnInit
     
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+  goCNN() {
+    window.location.href='http://www.cnn.com/';
+}
 
   }
 
