@@ -1,0 +1,118 @@
+<div class="Home container">
+    <div class=" col-lg-7 col-md-7 col-sm-7 col-xs-12">
+        <div class="header fadeInUp" style="animation-delay: 0.5s;">
+            <div class="header-mid row">
+                <div class="titles col-md-7">
+                    <h1>India COVID-19 Tracker</h1>
+                    <h6 style="color: #298ae1;">Angular App Made By Suman Ghorai </h6>
+                </div>
+                <div class="last-update col-md-5">
+                    <h6>Last Updated</h6>
+                    <h4 class="difference-time" style=" color: #0bb332fa; font-weight: 600; " *ngIf='lastupdated.hour==0; else elseBlock'> {{lastupdated.minute}} minutes ago</h4>
+                    <ng-template #elseBlock>{{lastupdated.hour}} hour {{lastupdated.minute}} minutes ago</ng-template>
+                    <h5 style=" color: #0bb332fa; font-weight: 600;" class="refreshed-time">{{lastrefreshedtime | date:'dd MMM, hh:mm'}} IST</h5>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="Level fadeInUp row" style="animation-delay: 0.8s; ">
+
+            <div class="level-item is-cherry col-xs-3">
+                <h5>Confirmed</h5>
+                <h4>[+{{DailyStatus.total.confirmed}}]</h4>
+                <h1>{{statewisecase.confirmed}} </h1>
+            </div>
+            <div class="level-item is-blue col-xs-3">
+                <h5 class="heading ">Active</h5>
+                <h4>[+{{DailyStatus.total.active}}]</h4>
+                <h1 class="title has-text-info ">{{statewisecase.active}}</h1>
+            </div>
+            <div class="level-item is-green col-xs-3">
+                <h5 class="heading ">Recovered</h5>
+                <h4>[+{{DailyStatus.total.recovered}}]</h4>
+                <h1 class="title has-text-success ">{{statewisecase.recovered}} </h1>
+            </div>
+            <div class="level-item is-gray col-xs-3">
+                <h5 class="heading ">Deceased</h5>
+                <h4>[+{{DailyStatus.total.deaths}}]</h4>
+                <h1 class="title has-text-grey ">{{statewisecase.deaths}}</h1>
+            </div>
+        </div>
+
+
+        
+
+   
+
+        
+
+        <table class="table table-striped table-hover  fadeInUp col-md-12" style="animation-delay: 1s; ">
+            <thead>
+                <tr>
+                    <th (click)="sortAscending(sortedDataBasedOnDate) " class="sticky state-heading ">
+                        <div class="heading-content "><abbr title="State ">State/UT</abbr>
+                            <div class="" [ngClass]=" { 'downarrow':showArrows.downarrowState , 'up-arrow' : showArrows.uparrowState} "></div>
+                        </div>
+                    </th>
+                    <th (click)="sortByMaxCases(sortedDataBasedOnDate) " class="sticky ">
+                        <div class="heading-content "><abbr class="confirmed " title="Confirmed ">Confirm</abbr>
+                            <div class="" [ngClass]=" { 'downarrow':showArrows.downarrowConfirmed , 'up-arrow' : showArrows.uparrowowConfirmed} "></div>
+                        </div>
+                    </th>
+                    <th (click)="sortByMaxActive(sortedDataBasedOnDate) " class="sticky ">
+                        <div class="heading-content "><abbr class="active-cases " title="Active ">Active</abbr>
+                            <div class="" [ngClass]=" { 'downarrow':showArrows.downarrowActive , 'up-arrow' : showArrows.uparrowActive} "></div>
+                        </div>
+                    </th>
+                    <th (click)="sortByMaxRecovered(sortedDataBasedOnDate) " class="sticky ">
+                        <div class="heading-content "><abbr class=" recovered" title="Recovered ">Recover</abbr>
+                            <div class="" [ngClass]=" { 'downarrow':showArrows.downarrowRecovered , 'up-arrow' : showArrows.uparrowRecovered} "></div>
+
+                        </div>
+                    </th>
+                    <th (click)="sortByMaxDeath(sortedDataBasedOnDate) " class="sticky ">
+                        <div class="heading-content "><abbr class="death" title="Deaths ">Death</abbr>
+                            <div class="" [ngClass]=" { 'downarrow':showArrows.downarrowDeath , 'up-arrow' : showArrows.uparrowDeath} "></div>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+
+
+            <tbody *ngFor="let data of statewisedata;let i=index ">
+                <span class="dropdown rotateDownRight "><svg xmlns="http://www.w3.org/2000/svg " width="24 " height="24 " viewBox="0 0 24 24 " fill="none " stroke="currentColor " stroke-width="2 " stroke-linecap="round " stroke-linejoin="round
+                        "><polyline points="6 9 12 15 18 9 "></polyline></svg></span>
+
+                <tr class="state ">
+                    <td (click)="OngetState(data.state); showHideData(data) " style="font-weight: 600; ">{{data.state}}</td>
+
+
+
+
+                    <td style="color: inherit; ">
+
+                        <span *ngIf='DailystateStatus[i].confirmed !==0 && DailystateStatus[i].confirmed > 0 ;' class="deltas " style="color: rgb(255, 7, 58); "><svg xmlns="http://www.w3.org/2000/svg " width="24 " height="24 " viewBox="0 0 24 24
+                        " fill="none " stroke="currentColor " stroke-width="2 " stroke-linecap="round " stroke-linejoin="round "><line x1="12 " y1="19 " x2="12 " y2="5 "></line><polyline points="5 12 12 5 19 12 "></polyline>
+                                </svg>    {{DailystateStatus[i].confirmed}}</span> {{data.confirmed}}
+                    </td>
+
+
+                    <td style="color: inherit; ">{{data.active}}</td>
+                    <td style="color: inherit; ">{{data.recovered}}</td>
+                    <td style="color: inherit; ">{{data.deaths}}</td>
+
+                </tr>
+
+
+                <tr class="nohover" app-district *ngIf="data[ 'show'] "></tr>
+
+            </tbody>
+
+        </table>
+    </div>
+
+
+
+    
+</div>
