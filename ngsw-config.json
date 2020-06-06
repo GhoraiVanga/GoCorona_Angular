@@ -25,5 +25,25 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+    "name": "Covid19-api",
+    "urls": [
+     
+         "https://api.rootnet.in/covid19-in/unofficial/covid19india.org/statewise",
+        " https://api.rootnet.in/covid19-in/unofficial/covid19india.org/statewise/history",
+          "https://api.covid19india.org/state_district_wise.json",
+          "https://api.covid19india.org/website_data.json"
+    ],
+    "cacheConfig": {
+      "strategy": "performance",
+      "maxAge" : "1d",
+      "maxSize" :100
+
+    }
+  }
   ]
+
+   
 }
