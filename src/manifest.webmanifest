@@ -1,6 +1,6 @@
 {
-  "name": "corona-tracker-suman",
-  "short_name": "corona-tracker-suman",
+  "name": "Covid_19",
+  "short_name": "Covid_19",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
