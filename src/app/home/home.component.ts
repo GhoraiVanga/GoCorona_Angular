@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CoronaService } from '../shared/corona.service';
-import { ThrowStmt } from '@angular/compiler';
+
 
 
 @Component({
@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
 
 
   showDistrict:boolean=false
-  sortedDataBasedOnDate
+  sortedDataBasedOnDate :any;
   private isAscendingSort: boolean = false;
 
   DailystateStatus: Array<any> = [{ state: '', confirmed: '', recovered: '', deaths: '', active: '' }];
@@ -124,7 +124,8 @@ export class HomeComponent implements OnInit {
       })
   }
 
-  OngetState(state) {
+  OngetState(state) 
+  {
 
   this.getDataofState(state)
 
@@ -182,7 +183,8 @@ export class HomeComponent implements OnInit {
     }
   }
   resetArrows() {
-    this.showArrows = {
+    this.showArrows = 
+    {
       uparrowState: false,
       downarrowState: false,
       downarrowConfirmed:false,

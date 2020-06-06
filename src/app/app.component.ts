@@ -19,33 +19,10 @@ export class AppComponent implements OnInit {
   constructor(private cs: CoronaService) { }
 
   
-  ngOnInit(): void {
-    this.cs.getBanners().subscribe(data => {
-      this.BannerDataList = data.factoids.map(item => {
-        return item.banner
-      })
-      this.count = this.BannerDataList.length - 1
-      this.BannerData = this.BannerDataList[0]
-
-      const source = interval(5000);
-      let i = 0;
-      this.subscription = source.subscribe((val: any) => {
-        val = this.opensnack(this.BannerDataList[i]);
-        this.storebannerSubject.next(val);
-        i = i + 1
-         if (i <= this.count) {
-           i = i + 1;
-         } else {
-           i = 0;
-         }
-      });
-    })
-
-
+  ngOnInit(): void 
+  {
+    
   }
-  opensnack(data) {
-    this.storebannerSubject.subscribe(v => {
-      this.BannerData = data;
-    });
-  }
+
+    
 }

@@ -9,6 +9,8 @@ import { CoronaService } from './shared/corona.service';
 import { DistrictComponent } from './district/district.component';
 import { HelpfulLinksComponent } from './helpful-links/helpful-links.component';
 import { FAQComponent } from './faq/faq.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { FAQComponent } from './faq/faq.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [CoronaService],
   bootstrap: [AppComponent]
