@@ -11,6 +11,7 @@ import { HelpfulLinksComponent } from './helpful-links/helpful-links.component';
 import { FAQComponent } from './faq/faq.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { WorldwideComponent } from './worldwide/worldwide.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { environment } from '../environments/environment';
     HomeComponent,
     DistrictComponent,
     HelpfulLinksComponent,
-    FAQComponent
+    FAQComponent,
+    WorldwideComponent
   ],
   imports: [
     BrowserModule,

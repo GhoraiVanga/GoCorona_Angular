@@ -17,10 +17,17 @@ export class CoronaService implements OnInit {
   url_dailycases = 'https://api.rootnet.in/covid19-in/unofficial/covid19india.org/statewise/history'
   ulr_districtwise = "https://api.covid19india.org/state_district_wise.json"
   url_banner = "https://api.covid19india.org/website_data.json"
+  url_world = "https://corona.lmao.ninja/v2/countries"
+ 
   constructor(private http: HttpClient) { }
   ngOnInit(): void {
 
     this.getDataStateWise()
+    this.getworldwide()
+
+  }
+  getworldwide() : Observable<any>{
+    return this.http.get(this.url_world)
   }
 
   getBanners(): Observable<any> {
@@ -42,8 +49,8 @@ export class CoronaService implements OnInit {
   getDataDistrictWise(state) {
     this.http.get(this.ulr_districtwise).subscribe(data => {
       this.data1 = data
-    //  console.log(this.data1)
-   //   console.log(this.data1[state])
+      console.log(this.data1)
+     console.log(this.data1[state])
       this.district = this.data1[state].districtData
     //  console.log(state)
       this.districtdata.next(this.district)

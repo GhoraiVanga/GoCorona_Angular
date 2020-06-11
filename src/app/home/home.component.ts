@@ -50,11 +50,13 @@ export class HomeComponent implements OnInit {
     this.cs.getDailyCaseStatus().subscribe(
       response => {
         this.sortedDataBasedOnDate = response.data.history
+        console.log(this.sortedDataBasedOnDate)
         this.sortByMaxCases(this.sortedDataBasedOnDate)
-       
-       // console.log(this.sortedDataBasedOnDate);
+       console.log(this.sortByMaxCases)
+        console.log(this.sortedDataBasedOnDate);
         this.calculateDiff(this.sortedDataBasedOnDate)
         this.statewisedata = this.sortedDataBasedOnDate[this.sortedDataBasedOnDate.length - 1].statewise
+        console.log(this.statewisedata)
         this.statewisecase= this.sortedDataBasedOnDate[this.sortedDataBasedOnDate.length - 1].total
      //   console.log(this.statewisecase)
       },
@@ -64,7 +66,9 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  calculateDiff(data) {
+  calculateDiff(data) 
+  {
+    console.log( 'calculateDifff ' + data);
     let x = data
     let last: any = x[x.length - 1];
     let last2: any = x[x.length - 2];
@@ -81,6 +85,7 @@ export class HomeComponent implements OnInit {
           else {
             if (typeof obj === 'object' && typeof obj2 === 'object') {
               ret[key] = calculate(obj, obj2);
+              console.log(  ret[key]);
             }
             else {
               ret[key] = obj;
@@ -92,6 +97,7 @@ export class HomeComponent implements OnInit {
     }
     let test = calculate(last, last2);
     this.DailyStatus = test;
+    
     this.DailystateStatus = this.DailyStatus.statewise
   }
 
@@ -206,7 +212,8 @@ export class HomeComponent implements OnInit {
 
 
  
-    sortedDataBasedOnDate.forEach(item => item.statewise.sort(function (a, b) {
+    sortedDataBasedOnDate.forEach(item => item.statewise.sort(function (a, b) 
+    {
       if (b.confirmed < a.confirmed) {
         return -1;
       }

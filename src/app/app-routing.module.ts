@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HelpfulLinksComponent } from './helpful-links/helpful-links.component';
 import { FAQComponent } from './faq/faq.component';
 import { HomeComponent } from './home/home.component';
+import { WorldwideComponent } from './worldwide/worldwide.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'helpful', component: HelpfulLinksComponent },
   { path: 'faq',      component: FAQComponent },
+  {path:'worldwide' , component:WorldwideComponent}
 ];
 
 @NgModule({

@@ -1,0 +1,63 @@
+<div class="Home container">
+    <div class=" col-lg-7 col-md-7 col-sm-7 col-xs-12">
+        <div class="header fadeInUp" style="animation-delay: 0.5s;">
+            <div class="header-mid row">
+                <div class="titles col-md-7">
+                    <h1>World COVID-19 Tracker</h1>
+                    <h6 style="color: #298ae1;"> Made By Suman Ghorai </h6>
+                </div>
+               
+            </div>
+        </div>
+<table class="table table-striped table-hover  fadeInUp col-md-12" style="animation-delay: 1s; ">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="heading-content "><abbr title="State ">country</abbr>
+                            
+                        </div>
+                    </th>
+                    <th (click)="sortByMaxCases(sortedDataBasedOnDate) " class="sticky ">
+                        <div class="heading-content "><abbr class="confirmed " title="Confirmed ">cases</abbr>
+                            <div class="" [ngClass]=" { 'downarrow':showArrows.downarrowConfirmed , 'up-arrow' : showArrows.uparrowowConfirmed} "></div>
+                        </div>
+                    </th>
+                  
+                    <th >
+                        <div class="heading-content "><abbr class=" recovered" title="Recovered ">recovered</abbr>
+                           
+
+                        </div>
+                    </th>
+                    <th >
+                        <div class="heading-content "><abbr class="death" title="Deaths ">deaths</abbr>
+                           
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+
+
+            <tbody *ngFor="let data of CountryWiseCase;let i=index ">
+                
+                 <tr class="state ">
+                    <td  style="font-weight: 600; ">{{data.country}}</td>
+                     <td style="color: inherit ">{{data.cases}}</td>
+                    <td style="color: inherit ">{{data.recovered}}</td>
+                    <td style="color: inherit ">{{data.deaths}}</td>
+
+                </tr>
+                  
+
+
+                
+
+            </tbody>
+
+        </table>
+    </div>
+
+
+
+    
+</div>
