@@ -2,11 +2,11 @@ export interface CountryReports
 { 
     country :string;
     cases :number;
-   
-    deaths:string;
-    
-    recovered:number;
- 
+   deaths:number;
+recovered:number;
+todayCases:number
+todayDeaths:number
+population:number
    
     
 

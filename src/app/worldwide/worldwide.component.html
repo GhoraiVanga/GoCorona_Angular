@@ -9,6 +9,20 @@
                
             </div>
         </div>
+        <div class="Level fadeInUp row" style="animation-delay: 0.8s; ">
+
+            <div class="level-item is-cherry col-xs-3">
+                <h5>Confirmed</h5>
+                <h4>[+{{todayCases}}]</h4>
+                <h1>{{currentcase}} </h1>
+            </div>
+          
+            <div class="level-item is-gray col-xs-3">
+                <h5 class="heading ">Death</h5>
+                <h4>[+{{todaydeads}}]</h4>
+                <h1 class="title has-text-grey ">{{totaldeath}}</h1>
+            </div>
+        </div>
 <table class="table table-striped table-hover  fadeInUp col-md-12" style="animation-delay: 1s; ">
             <thead>
                 <tr>
@@ -34,6 +48,16 @@
                            
                         </div>
                     </th>
+                    <th  class="sticky ">
+                        
+                            <div class="heading-content "><abbr class="active-cases " title="Active ">Population</abbr> 
+                        </div>
+                    </th>
+                    <th  class="sticky ">
+                        
+                        <div class="heading-content "><abbr class="active-cases " title="Active ">Test</abbr> 
+                    </div>
+                </th>
                 </tr>
             </thead>
 
@@ -45,11 +69,12 @@
                      <td style="color: inherit ">{{data.cases}}</td>
                     <td style="color: inherit ">{{data.recovered}}</td>
                     <td style="color: inherit ">{{data.deaths}}</td>
-
+                    <td style="color: inherit ">{{data.population}}</td>
+                    <td style="color: inherit ">{{data.tests}}</td>
                 </tr>
                   
 
-
+                
                 
 
             </tbody>

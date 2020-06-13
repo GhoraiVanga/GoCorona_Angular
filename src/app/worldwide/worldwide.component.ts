@@ -21,9 +21,14 @@ export class WorldwideComponent implements OnInit {
     downarrowDeath:false,
     uparrowDeath:false,
 }
-CountryWiseCase :Array<any>  =[{country:'',cases:'',deaths:'',recovered:''}]
-CountryWise : CountryReports[]=[]
+CountryWiseCase :Array<any>  =[{country:'',cases:'',deaths:'',recovered:'',todayCases:'',todayDeaths:'',population:''}]
+CountryWise :  []
 CountryCase: CountryReports[]
+currentcase=0;
+todayCases=0
+totaldeath=0
+todaydeads=0
+
 
   showDistrict:boolean=false
   sortedDataBasedOnDate :any;
@@ -45,32 +50,41 @@ CountryCase: CountryReports[]
 
     
     this.testData()
+    console.log(this.CountryWise)
   }
 
   testData() {
-    this.cs.getworldwide().subscribe(
-      response => {
-        this.CountryWise = response,
+    this.cs.getworldwide().subscribe
+    (
+     
+      response =>
+       {
         
-       console.log(this.CountryWise)
-       
+        this.CountryWise = response
         
-      
-    
-     this.CountryWiseCase = this.CountryWise
-      
-       
-      //  console.log(this.sortedDataBasedOnDate)
         this.sortByMaxCases(this.CountryWise)
+        this.CountryWiseCase = this.CountryWise
        
-        //console.log('this.sortedDataBasedOnDate ' + this.sortedDataBasedOnDate);
+        for(let a of this.CountryCase)
+   {
+     this.currentcase=this.currentcase+a.cases;
+   }
+   for(let b of this.CountryCase)
+   {
+this.totaldeath=this.totaldeath+b.deaths;
+   }
+   for(let c of this.CountryCase)
+   {
+    this.todayCases=this.todayCases+c.todayCases;
+   }
+   
+   for(let d of this.CountryCase)
+   {
+     this.todaydeads=this.todaydeads+d.todayDeaths;
+   }
         
-       
-       
-       
-        
-     //   console.log(this.statewisecase)
-      },
+    
+ },
       error => {
         console.log(error);
       }
@@ -84,13 +98,15 @@ CountryCase: CountryReports[]
 
   
  
-   sortByMaxCases(sortedDataBasedOnDate) {
+   sortByMaxCases(data) {
     this.showArrows
     this.isAscendingSort = !this.isAscendingSort;
    this.showArrows.downarrowConfirmed=!this.showArrows.downarrowConfirmed
 
-    if(sortedDataBasedOnDate==sortedDataBasedOnDate)
+    if(data==data)
     {
+      console.log("inner")
+      console.log(data)
       this.CountryCase = this.CountryWise.sort(this.sortByCountery)
     }
  
@@ -111,8 +127,9 @@ CountryCase: CountryReports[]
       return 1;
     }
     return 0;
-  }
-
+  
+  
  
-
+ }
 }
+

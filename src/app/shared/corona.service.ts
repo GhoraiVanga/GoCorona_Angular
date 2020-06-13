@@ -23,7 +23,7 @@ export class CoronaService implements OnInit {
   ngOnInit(): void {
 
     this.getDataStateWise()
-    this.getworldwide()
+    
 
   }
   getworldwide() : Observable<any>{
