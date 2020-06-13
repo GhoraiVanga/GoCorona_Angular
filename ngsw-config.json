@@ -37,7 +37,8 @@
           "https://api.covid19india.org/website_data.json"
     ],
     "cacheConfig": {
-      "strategy": "performance",
+      "strategy": "freshness",
+      "timeout": "6s",
       "maxAge" : "1m",
       "maxSize" :100
 

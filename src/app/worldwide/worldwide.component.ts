@@ -21,14 +21,15 @@ export class WorldwideComponent implements OnInit {
     downarrowDeath:false,
     uparrowDeath:false,
 }
-CountryWiseCase :Array<any>  =[{country:'',cases:'',deaths:'',recovered:'',todayCases:'',todayDeaths:'',population:''}]
+CountryWiseCase :Array<any>  =[{country:'',cases:'',deaths:'',recovered:'',todayCases:'',todayDeaths:'',population:'',tests:'',todayRecovered:''}]
 CountryWise :  []
 CountryCase: CountryReports[]
 currentcase=0;
 todayCases=0
 totaldeath=0
 todaydeads=0
-
+todayrecovered=0
+totalrecoverd=0
 
   showDistrict:boolean=false
   sortedDataBasedOnDate :any;
@@ -81,6 +82,14 @@ this.totaldeath=this.totaldeath+b.deaths;
    for(let d of this.CountryCase)
    {
      this.todaydeads=this.todaydeads+d.todayDeaths;
+   }
+   for(let r of this.CountryCase)
+   {
+     this.todayrecovered=this.todayrecovered+r.todayRecovered;
+   }
+   for(let R of this.CountryCase)
+   {
+     this.totalrecoverd=this.totalrecoverd+R.recovered;
    }
         
     

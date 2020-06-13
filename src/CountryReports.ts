@@ -7,6 +7,8 @@ recovered:number;
 todayCases:number
 todayDeaths:number
 population:number
+tests:number
+todayRecovered:number
    
     
 

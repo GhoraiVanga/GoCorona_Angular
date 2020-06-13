@@ -3,8 +3,8 @@
         <div class="header fadeInUp" style="animation-delay: 0.5s;">
             <div class="header-mid row">
                 <div class="titles col-md-7">
-                    <h1>World COVID-19 Tracker</h1>
-                    <h6 style="color: #298ae1;"> Made By Suman Ghorai </h6>
+                    <h1  >Worldwide</h1>
+                   
                 </div>
                
             </div>
@@ -15,6 +15,11 @@
                 <h5>Confirmed</h5>
                 <h4>[+{{todayCases}}]</h4>
                 <h1>{{currentcase}} </h1>
+            </div>
+            <div class="level-item is-blue col-xs-3">
+                <h5 class="heading ">Recovered</h5>
+                <h4>[+{{todayrecovered}}]</h4>
+                <h1 class="title has-text-info ">{{totalrecoverd}}</h1>
             </div>
           
             <div class="level-item is-gray col-xs-3">
@@ -31,9 +36,9 @@
                             
                         </div>
                     </th>
-                    <th (click)="sortByMaxCases(sortedDataBasedOnDate) " class="sticky ">
+                    <th  class="sticky ">
                         <div class="heading-content "><abbr class="confirmed " title="Confirmed ">cases</abbr>
-                            <div class="" [ngClass]=" { 'downarrow':showArrows.downarrowConfirmed , 'up-arrow' : showArrows.uparrowowConfirmed} "></div>
+                           
                         </div>
                     </th>
                   
